@@ -17,3 +17,4 @@ resources:
 - ./opa-gatekeeper-policies
 - ./prometheus-monitoring
 - ./argo-workflow
+- ./jaeger
