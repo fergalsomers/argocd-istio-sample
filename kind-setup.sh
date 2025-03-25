@@ -13,7 +13,7 @@
 #    limitations under the License.
 #!/bin/sh
 
-set -x
+set -e
 
 # Pre-requisites (see readme)
 
@@ -69,12 +69,6 @@ kubectl apply -k argocd
 
 kubectl wait --for='jsonpath={.status.availableReplicas}'=1 deployment/argocd-server -n  argocd --timeout="60s"
 
-echo "ArgoCD is running"
+echo "ArgoCD is running! Booting the platform via ArgoCD"
 
-echo "Installing the boot application via Kustomize, ArgoCD will then load all the applications... " 
-
-kubectl apply -k boot-application
-
-echo "Boot application has been installed via ArgoCD" 
-
-echo "... ArgoCD Installed. Check ArgoCD application statuses!"
+./install-argocd-platform.sh
