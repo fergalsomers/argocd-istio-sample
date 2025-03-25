@@ -71,4 +71,4 @@ kubectl wait --for='jsonpath={.status.availableReplicas}'=1 deployment/argocd-se
 
 echo "ArgoCD is running! Booting the platform via ArgoCD"
 
-./install-argocd-platform.sh
+time ./install-argocd-platform.sh

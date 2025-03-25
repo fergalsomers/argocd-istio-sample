@@ -20,6 +20,9 @@ spec:
   accessLogging:
     - providers:
       - name: envoy
+  tracing:
+  - providers:
+    - name: jaeger      
   # tracing:
   # - randomSamplingPercentage: 100.000000
   #   provider: jaeger

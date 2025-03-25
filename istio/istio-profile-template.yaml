@@ -29,14 +29,12 @@ spec:
     egressGateways:
     - name: istio-egressgateway
       enabled: false
-  # Istio Skywalking mesh config
-  # meshConfig:
-  #   defaultProviders:
-  #     tracing:
-  #     - "skywalking"
-  #   enableTracing: true
-  #   extensionProviders:
-  #   - name: "skywalking"
-  #     skywalking:
-  #       service: tracing.istio-system.svc.cluster.local
-  #       port: 11800      
+  meshConfig:
+    enableTracing: true
+    defaultConfig:
+      tracing: {} # disable legacy MeshConfig tracing options
+    extensionProviders:
+    - name: jaeger
+      opentelemetry:
+        port: 4317
+        service: jaeger-collector.istio-system.svc.cluster.local  

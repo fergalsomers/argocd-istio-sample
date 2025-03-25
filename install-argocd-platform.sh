@@ -8,7 +8,7 @@ set -e
 kubectl apply -k boot-application
 
 echo "ArgoCD will now load the platform application.."
-echo "This may take a few minutes.."
+echo "This may take 10-15 minutes.."
 echo " - you can check the status of the application by running (in another terminal):"
 echo " > kubectl get applications -n argocd -w"
 echo ".. meanwhile waiting for the platform application to be healthy..." 
@@ -22,6 +22,8 @@ kubectl wait --for='jsonpath={.status.health.status}'=Healthy application --all 
 echo "Platform is healthy and synced!" 
 echo
 echo "You can now access the ARGOCD application at http://localhost:8081/"
+echo " - ArgoCD provides a GitOps platform for managing the platform"
+echo " - you can use the ArgoCD UI to see all the applications and resources installed"
 echo " - you will need to login with the username 'admin' and the password can be found by running:"
 echo " > kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d"
 echo
