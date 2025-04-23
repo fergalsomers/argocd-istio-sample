@@ -14,5 +14,5 @@
 
 kubeconfig
 nohup.out
-
+kind-config.yaml
 istio/istio-profile.yaml

@@ -42,6 +42,7 @@ The purpose of this demo is to illustrate that once you have a K8 cluster and Ar
 1. Install [kind](https://kind.sigs.k8s.io/) - for mac "brew install kind"
 1. Install [kubectl](https://kubernetes.io/docs/reference/kubectl/) - for mac "brew install kubectl"
 1. Install [git](https://git-scm.com/) - git comes with Xcode on mac. 
+2. Make - comes pre-installed on mac with Xcode, but you can always upgrade it to the latest! `xcode-select --install`
 
 # How to install
 
@@ -50,7 +51,7 @@ Clone the repo and
 ```
 git clone https://github.com/fergalsomers/argocd-istio-sample
 cd argocd-istio-sample
-./kind-setup.sh
+make platform
 ```
 
 This can take 5-10 minutes - it is doing quite a lot: 
